@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const e = require("express");
 const configs = require("../config");
 const { AppError } = require("../helpers/error");
 const { User } = require("../models");
@@ -66,7 +67,7 @@ const createUser = async (data) => {
   }
 };
 
-const updateUser = async (id, data) => {
+const updateUser = async (id, data, userReq) => {
   try {
     const user = await User.findOne({
       where: {
@@ -74,8 +75,25 @@ const updateUser = async (id, data) => {
       },
     });
 
+
     if (!user) {
       throw new AppError(400, "User not found");
+    }
+
+    if(userReq.id != id) {
+      console.log("id: ", id);
+      console.log("userReq.id : ", userReq.id );
+      throw new AppError(403, "Can't update someone else's account");
+    }
+
+    const emailExisted = await User.findOne({
+      where: {
+        email: data.email,
+      },
+    });
+
+    if(emailExisted && id != emailExisted.id ) {
+      throw new AppError(401, "Email is existed");
     }
 
     user.set(data);

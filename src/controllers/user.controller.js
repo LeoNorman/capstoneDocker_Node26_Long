@@ -45,12 +45,12 @@ const updateUser = () => {
     try {
       const { id } = req.params;
       const data = req.body;
+      const { user } = res.locals
 
-      const updatedUser = await userService.updateUser(id, data);
+      const updatedUser = await userService.updateUser(id, data, user);
 
       res.status(200).json(response(updatedUser));
     } catch (error) {
-      // res.status(500).json({ error: error.message });
       next(error);
     }
   };
@@ -61,7 +61,7 @@ const deleteUser = () => {
     try {
       const { id } = req.params;
       const createdUser = await userService.deleteUser(id);
-      res.status(200).json(response(true));
+      res.status(204).json(response(true));
     } catch (error) {
       // res.status(500).json({ error: error.message });
       next(error);
