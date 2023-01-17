@@ -19,7 +19,25 @@ const getCommentByImageId = async (imageId) => {
     }
 };
 
+const createComment = async (imageId, user) => {
+    try {
+        console.log("imageId", imageId);
+        const image = await Image.findByPk(imageId);
+        if (!image) {
+            throw new AppError(400, "image not found")
+        }
+
+        console.log("image: ", image.__proto__);
+        const addComment = await image.addUserCommentList(user.id)
+        console.log("addComment: ", addComment);
+        return addComment;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
 module.exports = {
-    //   getComments,
     getCommentByImageId,
+    createComment,
 };

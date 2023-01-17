@@ -29,7 +29,24 @@ const getCommentByImageId = () => {
   };
 };
 
+const createComment = () => {
+  return async (req, res, next) => {
+    try {
+      const { imageId } = req.body
+      const { user } = res.locals
+      const comments = await commentService.createComment(imageId, user);
+      // if(!comments) {
+      //   throw new AppError(404, "This image has no comments yet")
+      // }
+      res.status(201).json(response(comments));
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
 module.exports = {
     getComments,
-    getCommentByImageId
+    getCommentByImageId,
+    createComment,
 }

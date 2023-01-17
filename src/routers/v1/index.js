@@ -1,11 +1,14 @@
 // Routers V1
 const express = require("express");
-const authorization = require("../../middlewares/authorization");
 const authRouter = require("./auth.router");
 const commentRouter = require("./comment.router");
 const imageRouter = require("./image.router");
 const imageSaveRouter = require("./imageSave.router");
+const uploadRouter = require("./upload.router");
 const userRouter = require("./user.router");
+
+const authorization = require("../../middlewares/authorization");
+const upload = require("../../middlewares/upload");
 
 
 // path v1: /api/v1
@@ -21,6 +24,8 @@ v1.use("/images", authorization, imageRouter);
 v1.use("/comments", authorization, commentRouter);
 // Định nghĩa các routers cho imageSave
 v1.use("/imageSaves", authorization, imageSaveRouter);
+// Định nghĩa router cho upload
+v1.use("/upload", authorization, upload.single("file"), uploadRouter);
 
 
 module.exports = v1;

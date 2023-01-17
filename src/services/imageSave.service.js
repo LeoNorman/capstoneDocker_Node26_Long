@@ -1,15 +1,18 @@
 const { AppError } = require("../helpers/error");
-const { User } = require("../models");
+const { User, Image, ImageSaves } = require("../models");
 
 
 const getImageSavedByUserId = async (userId) => {
     try {
         const user = await User.findByPk(userId);
-        console.log("user: ", user.__proto__);
         if (!user) {
-            throw new AppError(400, "image not found")
+            throw new AppError(400, "user not found")
         }
-        const imageSavedLists = await user.getImageSaveLists();
+        const imageSavedLists = await ImageSaves.findAll({
+            where: {
+                userId,
+            }
+        })
         if (imageSavedLists.length) {
             return imageSavedLists
         }
@@ -20,6 +23,32 @@ const getImageSavedByUserId = async (userId) => {
     }
 };
 
+const checkSaved = async (imageId, userCheck) => {
+    try {
+        const image = await Image.findByPk(imageId);
+        
+        if (!image) {
+            throw new AppError(400, "image not found")
+        }
+        const isSaved = await image.hasUserSaveList(userCheck.id);
+        if (isSaved) {
+            const imageSaved = await ImageSaves.findOne({
+                where: {
+                    userId: userCheck.id,
+                    imageId, 
+                }
+            })
+            return imageSaved
+        }
+        return false;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+
+}
+
 module.exports = {
     getImageSavedByUserId,
+    checkSaved,
 };

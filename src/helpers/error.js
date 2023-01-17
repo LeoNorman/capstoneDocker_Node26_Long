@@ -13,7 +13,7 @@ const handleErrors = (err, req, res, next) => {
     if (!(err instanceof AppError)) {
         err = new AppError(500, "Internal Server");
     }
-
+    
     const { message, statusCode } = err;
     res.status(statusCode).json({
         status: "error",

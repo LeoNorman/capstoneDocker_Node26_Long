@@ -36,8 +36,35 @@ const getImageById = () => {
   };
 };
 
+const getImageByUserId = () => {
+  return async (req, res, next) => {
+    try {
+      const { userId } = req.params
+      const images = await imageService.getImageByUserId(userId);
+      res.status(200).json(response(images));
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
+const deleteImageCreatedById = () => {
+  return async (req, res, next) => {
+    try {
+      const { id } = req.params
+      const {user} = res.locals
+      const imageDeteted = await imageService.deleteImageCreatedById(id, user);
+      res.status(204).json(response(imageDeteted));
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
 module.exports = {
   getImages,
   getImageByImageName,
   getImageById,
-}
+  getImageByUserId,
+  deleteImageCreatedById,
+} 
