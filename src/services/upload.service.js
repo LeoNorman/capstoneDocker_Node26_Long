@@ -1,14 +1,11 @@
 const { Image } = require("../models");
 
-const uploadImages = async (file, desc, requester) => {
+const uploadImages = async (file, data, requester) => {
     try {
-        console.log("desc: ", desc);
-        // console.log("requester: ", requester.id);
-        // console.log("file: ", file);
         const imageCreated = await Image.create({
-            imageName: file.filename,
+            imageName: data.imageName,
             url: `http://localhost:4000/${file.path}`,
-            description: desc,
+            description: data.description,
             userId: requester.id
         })
 
