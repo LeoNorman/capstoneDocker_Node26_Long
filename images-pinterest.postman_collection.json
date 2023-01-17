@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "96727eaf-8031-4edb-b523-a47a0bcb743a",
+		"name": "images-pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23736082"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"email\": \"432dwd2dsaff42f43@gmail.com\",\r\n            \"password\": \"123123\",\r\n            \"username\": \"dsadsa21321\",\r\n            \"age\": 21,\r\n            \"avatar\": \"cxzqdqw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/auth/register",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiIzMjFkc2EyMTVhZDIxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg0ODI2NywiZXhwIjoxNjczODkxNDY3fQ.ZXuWqciStuLrrImH1jioMJLUz12srmdIeeM7fshK1Aw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"email\": \"432dwd2dsaff42f43@gmail.com\",\r\n            \"password\": \"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "GetImages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1NzIwMiwiZXhwIjoxNjc0MDAwNDAyfQ.5gcCbNbF9lSkwIMDBLImqh8Lia_4FlZ83c3XzaQFnUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/images",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchImageByImageName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1NzIwMiwiZXhwIjoxNjc0MDAwNDAyfQ.5gcCbNbF9lSkwIMDBLImqh8Lia_4FlZ83c3XzaQFnUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/images/search/21",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"search",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images-management",
+			"item": [
+				{
+					"name": "GetProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1Nzc1MSwiZXhwIjoxNjc0MDAwOTUxfQ.dcFUYojNQ-lvOm_MlwgqBXHpzFimGBlixq5DrnFpURw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/auth/profile",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImageCreatedByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1Nzc1MSwiZXhwIjoxNjc0MDAwOTUxfQ.dcFUYojNQ-lvOm_MlwgqBXHpzFimGBlixq5DrnFpURw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/images/created/1",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"created",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImageSavedByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1Nzc1MSwiZXhwIjoxNjc0MDAwOTUxfQ.dcFUYojNQ-lvOm_MlwgqBXHpzFimGBlixq5DrnFpURw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/imageSaves/1",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"imageSaves",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImagesByImageId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/images/1",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddImageByUser",
+			"item": [
+				{
+					"name": "createImageSavedByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiIyMTMyMWRzYXNhZDIxZHN3cXNxQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzk1Nzc1MSwiZXhwIjoxNjc0MDAwOTUxfQ.dcFUYojNQ-lvOm_MlwgqBXHpzFimGBlixq5DrnFpURw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/PH Laptop/Pictures/Saved Pictures/321611395_697371075436093_7755162179573942048_n.jpg"
+								},
+								{
+									"key": "description",
+									"value": "dsadsadad121d",
+									"type": "text"
+								},
+								{
+									"key": "imageName",
+									"value": "21sssadsadsa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/upload/uploadImages",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"upload",
+								"uploadImages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "EditProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"email\": \"dsad12dsa3dqwdd21@gmail.com\",\r\n        \"username\": \"dzsc\",\r\n        \"age\": 21,\r\n        \"avatar\": \"32321321321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/users/6",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Detail",
+			"item": [
+				{
+					"name": "GetImageById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/images/2",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCommentByImageId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/comments/2",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckSaved",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/imageSaves/checkSaved/2",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"imageSaves",
+								"checkSaved",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiI0MzJkd2QyZHNhZmY0MmY0M0BnbWFpbC5jb20iLCJpYXQiOjE2NzM5NTkwMDEsImV4cCI6MTY3NDAwMjIwMX0.QDgHvgBioMV1yEPzfGcZyMfjnKvgZSLltGIXhvLH8bQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstonedockernode26long-production.up.railway.app/api/v1/comments",
+							"protocol": "https",
+							"host": [
+								"capstonedockernode26long-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
